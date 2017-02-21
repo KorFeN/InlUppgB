@@ -7,10 +7,9 @@ Shape::Shape(int height)
 
 Shape::~Shape()
 {
-
 }
 
-int Shape::getHeight()
+int Shape::getHeight() const
 {
 	return this->height;
 }

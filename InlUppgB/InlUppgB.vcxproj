@@ -151,6 +151,7 @@
     <ClCompile Include="Shape.cpp" />
     <ClCompile Include="ShapeRegister.cpp" />
     <ClCompile Include="ShapeRegisterSystem.cpp" />
+    <ClCompile Include="TestShapeRegister.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Box.h" />

@@ -7,16 +7,13 @@ Box::Box(int lenght, int width, int height)
 	this->width = width;
 }
 
-Box::~Box()
-{
-}
 
-double Box::volume()
+double Box::volume() const
 {
 	return this->getHeight() * this->lenght * this->width;
 }
 
-string Box::toString()
+string Box::toString() const
 {
 	return "Width: " + to_string(this->width) + "\n"
 		+ "Lenght: " + to_string(this->lenght) + "\n"
@@ -24,12 +21,12 @@ string Box::toString()
 		+ "Volume: " + to_string(this->volume()) + "\n";
 }
 
-int Box::getLenght()
+int Box::getLenght() const
 {
 	return this->lenght;
 }
 
-int Box::getWidth()
+int Box::getWidth() const
 {
 	return this->width;
 }

@@ -18,17 +18,17 @@ public:
 	bool addCone(int radius, int height);
 	bool addBox(int width, int height, int lenght);
 	bool removeShape(int height);
-	bool getAllShapesAsStrings(string arr[], int capOfArr);
-	bool getAllConesAsStrings(string arr[], int capOfArr);
-	bool getAllBoxesAsStrings(string arr[], int capOfArr);
+	bool getAllShapesAsStrings(string arr[], int capOfArr) const;
+	bool getAllConesAsStrings(string arr[], int capOfArr) const;
+	bool getAllBoxesAsStrings(string arr[], int capOfArr) const;
 	bool editACone(int height, int newRadius, int newHeight);
 	bool editABox(int height, int newWidth, int newHeight, int newLenght);
 
-	int nrOfShapes();
-	int nrOfCones();
-	int nrOfBoxes();
+	int nrOfShapes() const;
+	int nrOfCones() const;
+	int nrOfBoxes() const;
 
-	int indexOfShape(int height);
+	int indexOfShape(int height) const;
 
 private:
 	Shape ** shapeArr;

@@ -30,6 +30,9 @@
     <ClCompile Include="ShapeRegister.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="TestShapeRegister.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Box.h">

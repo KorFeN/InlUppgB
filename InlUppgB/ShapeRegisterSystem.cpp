@@ -147,7 +147,7 @@ bool addShape(ShapeRegister * sReg)
 
 bool removeShape(ShapeRegister * sReg)
 {
-	cout << "Height of shape you want to remove: " << endl;
+	cout << "Height of shape you want to remove: ";
 	string input = "";
 	getline(cin, input);
 	int height = stoi(input);
@@ -229,6 +229,7 @@ void showAllShapes(ShapeRegister * sReg)
 			cout << strArr[i] << endl;
 		}
 	}
+	delete[] strArr;
 }
 
 void showCones(ShapeRegister * sReg)
@@ -243,6 +244,7 @@ void showCones(ShapeRegister * sReg)
 			cout << strArr[i] << endl;
 		}
 	}
+	delete[] strArr;
 }
 
 void showBoxes(ShapeRegister * sReg)
@@ -257,4 +259,5 @@ void showBoxes(ShapeRegister * sReg)
 			cout << strArr[i] << endl;
 		}
 	}
+	delete[] strArr;
 }

@@ -15,7 +15,7 @@ ShapeRegister::ShapeRegister(const ShapeRegister & origObj)
 	for (int i = 0; i < origObj.shapesInArr; i++)
 	{
 		Cone* conePtr = nullptr;
-		conePtr = dynamic_cast<Cone*>(shapeArr[i]);
+		conePtr = dynamic_cast<Cone*>(origObj.shapeArr[i]);
 		if (conePtr != nullptr) //IT IS A CONE
 		{
 			this->shapeArr[i] = new Cone(conePtr->getRadius(), conePtr->getHeight());
@@ -23,7 +23,7 @@ ShapeRegister::ShapeRegister(const ShapeRegister & origObj)
 		else //IT IS A BOX
 		{
 			Box* boxPtr = nullptr;
-			boxPtr = dynamic_cast<Box*>(shapeArr[i]);
+			boxPtr = dynamic_cast<Box*>(origObj.shapeArr[i]);
 			this->shapeArr[i] = new Box(boxPtr->getLenght(), boxPtr->getWidth(), boxPtr->getHeight());
 		}
 	}
@@ -45,7 +45,7 @@ ShapeRegister & ShapeRegister::operator=(const ShapeRegister & origObj)
 		for (int i = 0; i < origObj.shapesInArr; i++)
 		{
 			Cone* conePtr = nullptr;
-			conePtr = dynamic_cast<Cone*>(shapeArr[i]);
+			conePtr = dynamic_cast<Cone*>(origObj.shapeArr[i]);
 			if (conePtr != nullptr) //IT IS A CONE
 			{
 				this->shapeArr[i] = new Cone(conePtr->getRadius(), conePtr->getHeight());
@@ -53,7 +53,7 @@ ShapeRegister & ShapeRegister::operator=(const ShapeRegister & origObj)
 			else //IT IS A BOX
 			{
 				Box* boxPtr = nullptr;
-				boxPtr = dynamic_cast<Box*>(shapeArr[i]);
+				boxPtr = dynamic_cast<Box*>(origObj.shapeArr[i]);
 				this->shapeArr[i] = new Box(boxPtr->getLenght(), boxPtr->getWidth(), boxPtr->getHeight());
 			}
 		}
@@ -101,7 +101,7 @@ bool ShapeRegister::addBox(int width, int height, int lenght)
 
 bool ShapeRegister::removeShape(int height)
 {
-	bool remove = true;
+	bool remove = false;
 	int idx = indexOfShape(height);
 	if (idx != -1)
 		remove = true;
@@ -126,7 +126,7 @@ bool ShapeRegister::removeShape(int height)
 	return remove;
 }
 
-bool ShapeRegister::getAllShapesAsStrings(string arr[], int capOfArr)
+bool ShapeRegister::getAllShapesAsStrings(string arr[], int capOfArr) const
 {
 	bool fillArr = true;
 
@@ -141,7 +141,7 @@ bool ShapeRegister::getAllShapesAsStrings(string arr[], int capOfArr)
 	return fillArr;
 }
 
-bool ShapeRegister::getAllConesAsStrings(string arr[], int capOfArr)
+bool ShapeRegister::getAllConesAsStrings(string arr[], int capOfArr) const
 {
 	bool fillArr = true;
 	int currCones = 0;
@@ -163,7 +163,7 @@ bool ShapeRegister::getAllConesAsStrings(string arr[], int capOfArr)
 	return fillArr;
 }
 
-bool ShapeRegister::getAllBoxesAsStrings(string arr[], int capOfArr)
+bool ShapeRegister::getAllBoxesAsStrings(string arr[], int capOfArr) const
 {
 	bool fillArr = true;
 	int currBoxes = 0;
@@ -234,12 +234,12 @@ bool ShapeRegister::editABox(int height, int newWidth, int newHeight, int newLen
 	return edit;
 }
 
-int ShapeRegister::nrOfShapes()
+int ShapeRegister::nrOfShapes() const
 {
 	return shapesInArr;
 }
 
-int ShapeRegister::nrOfCones()
+int ShapeRegister::nrOfCones() const
 {
 	int cones = 0;
 
@@ -254,7 +254,7 @@ int ShapeRegister::nrOfCones()
 	return cones;
 }
 
-int ShapeRegister::nrOfBoxes()
+int ShapeRegister::nrOfBoxes() const
 {
 	int boxes = 0;
 
@@ -269,7 +269,7 @@ int ShapeRegister::nrOfBoxes()
 	return boxes;
 }
 
-int ShapeRegister::indexOfShape(int height)
+int ShapeRegister::indexOfShape(int height) const
 {
 	int exist = -1;
 
@@ -290,8 +290,8 @@ void ShapeRegister::expandArr(int expandAmount)
 		temp[i] = shapeArr[i];
 	}
 	arrCap = arrCap + expandAmount;
-
 	delete[] shapeArr;
+	shapeArr = temp;
 }
 
 void ShapeRegister::deleteArr()

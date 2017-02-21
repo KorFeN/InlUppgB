@@ -11,11 +11,11 @@ class Box : public Shape
 public:
 	Box(int lenght, int width, int height);
 	~Box();
-	double volume();
-	string toString();
+	double volume() const;
+	string toString() const;
 	
-	int getLenght();
-	int getWidth();
+	int getLenght() const;
+	int getWidth() const;
 	void setLenght(int newLenght);
 	void setWidth(int newWidth);
 

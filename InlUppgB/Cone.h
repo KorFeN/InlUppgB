@@ -11,10 +11,10 @@ class Cone : public Shape
 public:
 	Cone(int radius, int height);
 	~Cone();
-	double volume();
-	string toString();
+	double volume() const;
+	string toString() const;
 
-	int getRadius();
+	int getRadius() const;
 	void setRadius(int newRadius);
 
 private:

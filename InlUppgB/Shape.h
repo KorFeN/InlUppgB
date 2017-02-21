@@ -10,10 +10,10 @@ class Shape
 public:
 	Shape(int height);
 	~Shape();
-	virtual double volume() = 0;
-	virtual string toString() = 0;
+	virtual double volume() const = 0;
+	virtual string toString() const = 0;
 
-	int getHeight();
+	int getHeight() const;
 	void setHeight(int newHeight);
 
 private:

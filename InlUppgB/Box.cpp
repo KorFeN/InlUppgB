@@ -13,12 +13,10 @@ double Box::volume() const
 	return this->getHeight() * this->lenght * this->width;
 }
 
-string Box::toString() const
+string Box::toStringSpecific() const
 {
 	return "Width: " + to_string(this->width) + "\n"
-		+ "Lenght: " + to_string(this->lenght) + "\n"
-		+ "Height: " + to_string(this->getHeight()) + "\n"
-		+ "Volume: " + to_string(this->volume()) + "\n";
+		+ "Lenght: " + to_string(this->lenght) + "\n";
 }
 
 int Box::getLenght() const

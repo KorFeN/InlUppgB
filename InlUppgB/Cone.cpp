@@ -11,12 +11,11 @@ double Cone::volume() const
 	return 3.141592 * static_cast<double>(this->radius) * static_cast<double>(this->radius) * (static_cast<double>(this->getHeight()) / 3);
 }
 
-string Cone::toString() const
+string Cone::toStringSpecific() const
 {
-	return "Radius: " + to_string( this->radius ) + "\n"
-		+ "Height: " + to_string(this->getHeight()) + "\n"
-		+ "Volume: " + to_string(this->volume()) + "\n";
+	return "Radius: " + to_string(this->radius) + "\n";
 }
+
 
 int Cone::getRadius() const
 {

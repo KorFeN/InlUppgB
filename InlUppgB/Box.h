@@ -12,7 +12,7 @@ public:
 	Box(int lenght, int width, int height);
 	~Box();
 	double volume() const;
-	string toString() const;
+	string toStringSpecific() const;
 	
 	int getLenght() const;
 	int getWidth() const;

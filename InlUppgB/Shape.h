@@ -11,7 +11,8 @@ public:
 	Shape(int height);
 	~Shape();
 	virtual double volume() const = 0;
-	virtual string toString() const = 0;
+	string toString() const;
+	virtual string toStringSpecific() const = 0;
 
 	int getHeight() const;
 	void setHeight(int newHeight);

@@ -133,11 +133,14 @@ bool ShapeRegister::getAllShapesAsStrings(string arr[], int capOfArr) const
 	if (capOfArr < shapesInArr)
 		fillArr = false;
 
-	for (int i = 0; i < shapesInArr; i++)
+	if (fillArr)
 	{
-		arr[i] = shapeArr[i]->toString();
+		for (int i = 0; i < shapesInArr; i++)
+		{
+			arr[i] = shapeArr[i]->toString();
+		}
 	}
-
+	
 	return fillArr;
 }
 
@@ -149,14 +152,17 @@ bool ShapeRegister::getAllConesAsStrings(string arr[], int capOfArr) const
 	if (capOfArr < nrOfCones())
 		fillArr = false;
 
-	for (int i = 0; i < shapesInArr; i++)
+	if (fillArr)
 	{
-		Cone* conePtr = nullptr;
-		conePtr = dynamic_cast<Cone*>(shapeArr[i]);
-		if (conePtr != nullptr)
+		for (int i = 0; i < shapesInArr; i++)
 		{
-			arr[currCones] = shapeArr[i]->toString();
-			currCones++;
+			Cone* conePtr = nullptr;
+			conePtr = dynamic_cast<Cone*>(shapeArr[i]);
+			if (conePtr != nullptr)
+			{
+				arr[currCones] = shapeArr[i]->toString();
+				currCones++;
+			}
 		}
 	}
 
@@ -171,17 +177,20 @@ bool ShapeRegister::getAllBoxesAsStrings(string arr[], int capOfArr) const
 	if (capOfArr < nrOfBoxes())
 		fillArr = false;
 
-	for (int i = 0; i < shapesInArr; i++)
+	if (fillArr)
 	{
-		Box* boxPtr = nullptr;
-		boxPtr = dynamic_cast<Box*>(shapeArr[i]);
-		if (boxPtr != nullptr)
+		for (int i = 0; i < shapesInArr; i++)
 		{
-			arr[currBoxes] = shapeArr[i]->toString();
-			currBoxes++;
+			Box* boxPtr = nullptr;
+			boxPtr = dynamic_cast<Box*>(shapeArr[i]);
+			if (boxPtr != nullptr)
+			{
+				arr[currBoxes] = shapeArr[i]->toString();
+				currBoxes++;
+			}
 		}
 	}
-
+	
 	return fillArr;
 }
 
@@ -190,14 +199,15 @@ bool ShapeRegister::editACone(int height, int newRadius, int newHeight)
 	bool edit = true;
 
 	int idx = indexOfShape(height);
-	if (idx == -1)
+	int newIdx = indexOfShape(newHeight);
+	if (idx == -1 || newIdx >= 0)
 		edit = false;
 
 	if (edit)
 	{
 		Cone* conePtr = nullptr;
 		conePtr = dynamic_cast<Cone*>(shapeArr[idx]);
-		if (conePtr = nullptr)
+		if (conePtr == nullptr)
 			edit = false;
 		if (edit)
 		{
@@ -214,14 +224,15 @@ bool ShapeRegister::editABox(int height, int newWidth, int newHeight, int newLen
 	bool edit = true;
 
 	int idx = indexOfShape(height);
-	if (idx == -1)
+	int newIdx = indexOfShape(newHeight);
+	if (idx == -1 || newIdx >= 0)
 		edit = false;
 
 	if (edit)
 	{
 		Box* boxPtr = nullptr;
 		boxPtr = dynamic_cast<Box*>(shapeArr[idx]);
-		if (boxPtr = nullptr)
+		if (boxPtr == nullptr)
 			edit = false;
 		if (edit)
 		{

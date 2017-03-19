@@ -12,7 +12,7 @@ public:
 	Cone(int radius, int height);
 	~Cone();
 	double volume() const;
-	string toString() const;
+	string toStringSpecific() const;
 
 	int getRadius() const;
 	void setRadius(int newRadius);
